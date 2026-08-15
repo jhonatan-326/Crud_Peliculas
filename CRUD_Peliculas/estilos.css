@@ -1,0 +1,191 @@
+body {
+    background-color: #141414;
+    background-image: url("fondo.png");
+    
+    /* Propiedades para fijar el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita hacia abajo */
+    background-size: cover;       /* Ajusta la imagen para cubrir toda la pantalla */
+    background-attachment: fixed; /* Deja el fondo estático al hacer scroll */
+    background-position: center;   /* Centra la imagen */
+
+    color: #ffffff;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================
+   2. NAVBAR / BARRA DE NAVEGACIÓN
+   ========================================== */
+.navbar {
+    background-color: #1f1f1f !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   3. SECCIÓN DE LOGIN Y REGISTRO
+   ========================================== */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    padding-top: 220px; 
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* ==========================================
+   4. CARRUSEL DE PELÍCULAS Y BOTONES (FLECHAS)
+   ========================================== */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Contenedor horizontal scrolleable */
+.carrusel-movies {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 15px 5px;
+    scroll-behavior: smooth;
+    width: 100%;
+    /* Ocultar barra de desplazamiento */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+}
+
+.carrusel-movies::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+}
+
+/* Botones flotantes (< y >) */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111111;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+}
+
+.slider-btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-50%) scale(1.15);
+
+}
+
+/* Posicionamiento exacto de cada flecha */
+.slider-container .slider-btn:first-child {
+    left: -65px; /* Flecha izquierda */
+}
+
+.slider-container .slider-btn:last-child {
+    right: -55px; /* Flecha derecha */
+}
+
+/* ==========================================
+   5. TARJETAS DE PELÍCULAS (CARDS)
+   ========================================== */
+.slider-movie-card, .movie-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modificado: Aumentado el ancho de las tarjetas de arriba (antes 210px) */
+.slider-movie-card {
+    min-width: 240px;
+    max-width: 240px;
+    flex-shrink: 0;
+}
+
+.slider-movie-card:hover, .movie-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagen de las tarjetas de abajo (se mantiene igual) */
+.movie-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    background-color: #2a2a2a;
+}
+
+/* Modificado: Imagen exclusiva para las tarjetas de arriba (antes 280px) */
+.slider-movie-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    background-color: #2a2a2a;
+}
+
+.movie-card-body {
+    padding: 12px 14px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.movie-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-card-year {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+.movie-card-actions {
+    display: flex;
+    gap: 6px;
+    padding: 8px 12px 12px 12px;
+    background: #ffffff;
+}
+
+/* ==========================================
+   6. CONTROLES Y FILTROS
+   ========================================== */
+#input-buscar, #select-genero {
+    background-color: #ffffff;
+    color: #212529;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+#input-buscar::placeholder {
+    color: #6c757d;
+}
